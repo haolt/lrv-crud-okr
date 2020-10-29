@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\OkrController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,16 +18,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/okrs', function () {
-    return view('okr.index');
-});
+Route::get('/okrs', [OkrController::class, 'index']);
 
 // Route::get('/okr/1', function () {
 //     return view('okrs');
 // });
 
 // trang view: insert dữ liệu /resources/views/admin/news_create.blade.php ta cho form khi nhấn submit sẽ thực hiện một action tới /admin/news/store, do đó ta cần tạo một Controller để xử lý lưu dữ liệu nhập, và một Route điều hướng tới Controller này
-use App\Http\Controllers\OkrController;
+
 Route::get('/okr/create', [OkrController::class, 'create']);
 Route::post('/okr/store', [OkrController::class, 'store'])->name('okr.store');
 

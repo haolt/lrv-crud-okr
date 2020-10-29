@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Models\Okr;
 use App\Http\Controllers\OkrController;
@@ -15,7 +16,10 @@ class OkrController extends Controller
      */
     public function index()
     {
-        //
+        $okrs = DB::table('okr')->select('*');
+        $okrs = $okrs->get();
+        $pageTitle= 'All OKRs';
+        return view('okr.index', compact('okrs', 'pageTitle'));
     }
 
     /**
@@ -42,7 +46,7 @@ class OkrController extends Controller
         $okr->unit = $request->unit;
 
         $okr->save();
-        return redirect()->action([OkrController::class, 'create']);
+        return redirect()->action([OkrController::class, 'index']);
     }
 
     /**
