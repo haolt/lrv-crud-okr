@@ -55,3 +55,22 @@ a {
 a.is-text, a.is-text:hover, a.is-text:focus, a.is-text:active {
   text-decoration: none;
 }
+
+.table__delete-btn {
+  display: inline-block;
+}
+
+.table__delete-btn button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #ff7675;
+}
+
+.table td a:first-child i {
+  color: #74b9ff;
+}
+
+.table td a:nth-child(2) i {
+  color: #fdcb6e;
+}

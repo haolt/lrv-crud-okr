@@ -68,7 +68,8 @@ class OkrController extends Controller
      */
     public function edit($id)
     {
-        //
+        $okr = okr::findOrFail($id);
+        return view('okr.edit', compact('okr'));
     }
 
     /**
@@ -80,7 +81,12 @@ class OkrController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $okr = Okr::find($id);
+        $okr->title = $request->title; 
+        $okr->unit = $request->unit;
+
+        $okr->save();
+        return redirect()->action([OkrController::class, 'index']);
     }
 
     /**
@@ -91,6 +97,9 @@ class OkrController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $okr = Okr::find($id);
+
+        $okr->delete();
+        return redirect()->action([OkrController::class, 'index'])->with('success','Delete the OKR successfully.');
     }
 }

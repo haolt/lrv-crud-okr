@@ -22,7 +22,18 @@
                     <td><i class="fas fa-braille"></i>{!! "&nbsp;" !!}{{$okr->id}}</td>
                     <td>{{$okr->title}}</td>
                     <td>{{$okr->unit}}</td>
-                    <td><a href="./okr/{{$okr->id}}"><i class="fas fa-eye"></i></a> | Edit | Delete</td>
+                    <td>
+                        <a href="./okr/{{$okr->id}}"><i class="fas fa-eye"></i></a>
+                        {!! "&nbsp;" !!}
+                        <a href="./okr/edit/{{$okr->id}}"><i class="fas fa-pencil-alt"></i></a>
+                        {!! "&nbsp;" !!}
+                        
+                        <form method="POST" class="table__delete-btn" action="{{ route('okr.delete', [ 'id'=> $okr->id ]) }}" onsubmit="return ConfirmDelete( this )">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </td>
             </a></tr>
         @endforeach
     </tbody>

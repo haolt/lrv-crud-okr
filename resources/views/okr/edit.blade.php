@@ -3,26 +3,25 @@
 @section('heading')
     <span class="icon is-small" style="opacity: 0.2"><i class="fas fa-folder-plus"></i></span>
     {!! "&nbsp;" !!}
-    Create OKR
+    Edit the OKR
 @endsection
 
 @section('content')
-    <form method="post" action="{{ route('okr.store') }}">
-      <!-- @method('PATCH') -->
+    <form method="post" action="{{ route('okr.update', ['id'=> $okr->id]) }}">
       @csrf
       <div class="field">
         <div class="control">
-          <input name="title" class="input is-medium is-rounded" type="text" placeholder="Title" autocomplete="title" required />
+          <input value="{{ $okr->title }}" name="title" class="input is-medium is-rounded" type="text" placeholder="Title" autocomplete="title" required />
         </div>
       </div>
       <div class="field">
         <div class="control">
-          <input name="unit" class="input is-medium is-rounded" type="number" placeholder="Unit" autocomplete="unit" required />
+          <input value="{{ $okr->unit }}" name="unit" class="input is-medium is-rounded" type="number" placeholder="Unit" autocomplete="unit" required />
         </div>
       </div>
       <br />
       <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
-        <i class="fas fa-save"></i>Create
+        <i class="fas fa-save"></i>Update
       </button>
     </form>
 @endsection

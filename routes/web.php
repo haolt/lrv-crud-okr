@@ -15,10 +15,8 @@ Route::post('/okr/store', [OkrController::class, 'store'])->name('okr.store');
 
 Route::get('/okr/{id}', [OkrController::class, 'show'])->name('okr.show');
 
-// Route::get('/okr/edit', function () {
-//     return view('okrs');
-// });
+Route::get('/okr/edit/{id}', [OkrController::class, 'edit'])->name('okr.edit');;
+Route::post('/okr/update/{id}', [OkrController::class, 'update'])->name('okr.update');;
 
-// Route::get('/okr/delete', function () {
-//     return view('okrs');
-// });
+Route::delete('/okr/delete/{id}', [OkrController::class, 'destroy'])->name('okr.delete');;
+
