@@ -6,6 +6,7 @@
     <title>OKR Management</title>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ url('resources/css/app.css') }}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
   <div class="container is-fullheight">
@@ -16,7 +17,13 @@
       
       <div class="hero-body">
         <div class="login">
-          @yield('content')</div>
+          
+          <h3 class="title is-3 has-text-centered">
+              @yield('heading')
+          </h3>
+
+          @yield('content')
+        </div>
         </div>
       @include('includes/footer')
     </section>

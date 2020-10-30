@@ -1,10 +1,15 @@
 @extends('templates/layout')
 
+@section('heading')
+    <span class="icon is-small" style="opacity: 0.2"><i class="fas fa-folder-plus"></i></span>
+    {!! "&nbsp;" !!}
+    Create OKR
+@endsection
+
 @section('content')
     <form method="post" action="{{ route('okr.store') }}">
       <!-- @method('PATCH') -->
       @csrf
-      <h3 class="title is-3">Create your own OKR</h3>
       <div class="field">
         <div class="control">
           <input name="title" class="input is-medium is-rounded" type="text" placeholder="Title" autocomplete="title" required />

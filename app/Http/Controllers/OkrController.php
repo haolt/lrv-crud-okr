@@ -18,8 +18,7 @@ class OkrController extends Controller
     {
         $okrs = DB::table('okr')->select('*');
         $okrs = $okrs->get();
-        $pageTitle= 'All OKRs';
-        return view('okr.index', compact('okrs', 'pageTitle'));
+        return view('okr.index', compact('okrs'));
     }
 
     /**
@@ -57,7 +56,8 @@ class OkrController extends Controller
      */
     public function show($id)
     {
-        //
+        $okr = okr::where('id', '=', $id)->select('*')->first();
+        return view('okr.detail', compact('okr'));
     }
 
     /**

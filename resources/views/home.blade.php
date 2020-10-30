@@ -1,7 +1,12 @@
 @extends('templates/layout')
 
+@section('heading')
+    <span class="icon is-small" style="opacity: 0.2"><i class="fas fa-home"></i></span>
+    {!! "&nbsp;" !!}
+    Home
+@endsection
+
 @section('content')
-    <h3 class="title is-3">Home</h3>
     <ul>
         <li>Route. Active link. Hỏi vụ href</li>
         <li>View. Blade template.</li>
