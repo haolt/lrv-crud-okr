@@ -34,6 +34,10 @@ body {
   background: #555; 
 }
 
+::selection {
+  background: #81ecec;
+}
+
 .hero-body {
   justify-content: center;
 }
@@ -46,6 +50,11 @@ body {
 
 input {
   background: var(--shadowDark) !important;
+}
+
+button, button:focus, button:active {
+  box-shadow: none;
+  outline: none;
 }
 
 a {
@@ -67,10 +76,46 @@ a.is-text, a.is-text:hover, a.is-text:focus, a.is-text:active {
   color: #ff7675;
 }
 
+.card-footer-detail .table__delete-btn button {
+  width: 100%;
+}
+
+.detail-card {
+  min-width: 22em;
+}
+
 .table td a:first-child i {
   color: #74b9ff;
 }
 
-.table td a:nth-child(2) i {
+.table td a:nth-child(2) i,
+.card-footer-detail a:nth-child(2) i,
+.card-footer-detail a:nth-child(2) i:hover {
   color: #fdcb6e;
 }
+
+.h-tags .tag {
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0.5em 0;
+  display: inline-flex
+}
+
+.h-tags .tag:hover {
+  background: #ffffffeb;
+  box-shadow: 0px 0px 15px #0000001f;
+  transition: 0.2s;
+}
+
+.button.button.is-block.is-fullwidth.is-medium.is-rounded {
+  background: #00b894;
+}
+
+ul.content li {
+  margin: 0.7em 0;
+}
+
+.field {
+  margin: 0.7em 0 0;
+}
+

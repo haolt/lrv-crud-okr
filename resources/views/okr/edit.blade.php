@@ -8,6 +8,7 @@
 
 @section('content')
     <form method="post" action="{{ route('okr.update', ['id'=> $okr->id]) }}">
+      @method('PATCH')
       @csrf
       <div class="field">
         <div class="control">
@@ -21,7 +22,7 @@
       </div>
       <br />
       <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
-        <i class="fas fa-save"></i>Update
+        <i class="fas fa-save"></i>{!! "&nbsp;" !!}Update
       </button>
     </form>
 @endsection

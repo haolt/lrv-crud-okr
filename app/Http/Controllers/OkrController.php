@@ -39,9 +39,15 @@ class OkrController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'title' => [ 'required', 'min:5', 'max:100' ],
+            // 'unit' => 'required|numeric|min:0|gt:0',
+            'unit' => 'required|integer|gt:0',
+        ]);
+
         // dd(request()->all());
         $okr = new Okr;
-        $okr->title = $request->title; 
+        $okr->title = $request->title;
         $okr->unit = $request->unit;
 
         $okr->save();
@@ -102,4 +108,5 @@ class OkrController extends Controller
         $okr->delete();
         return redirect()->action([OkrController::class, 'index'])->with('success','Delete the OKR successfully.');
     }
+
 }
