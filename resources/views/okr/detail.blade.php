@@ -7,6 +7,8 @@
 @endsection
 
 @section('content')
+
+  @if($okr!== null)
     <div class="card detail-card">
       <header class="card-header">
         <p class="card-header-title">
@@ -36,4 +38,12 @@
         </a>
       </footer>
     </div>
+
+  @else
+
+    <div class="notification">
+        Oop ! This OKR is not found. <br/> <i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i> {!! "&nbsp;" !!}<a href="{{ route('okrs') }}">Back to OKRs</a>
+        </div>
+
+  @endif
 @endsection

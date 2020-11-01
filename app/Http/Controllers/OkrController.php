@@ -41,8 +41,7 @@ class OkrController extends Controller
     {
         request()->validate([
             'title' => [ 'required', 'min:5', 'max:100' ],
-            // 'unit' => 'required|numeric|min:0|gt:0',
-            'unit' => 'required|integer|gt:0',
+            'unit' => 'required|integer|gt:0|lte:10',
         ]);
 
         // dd(request()->all());
@@ -87,6 +86,11 @@ class OkrController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'title' => [ 'required', 'min:5', 'max:100' ],
+            'unit' => 'required|integer|gt:0|lte:10',
+        ]);
+    
         $okr = Okr::find($id);
         $okr->title = $request->title; 
         $okr->unit = $request->unit;

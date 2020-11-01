@@ -20,3 +20,6 @@ Route::patch('/okr/update/{id}', [OkrController::class, 'update'])->name('okr.up
 
 Route::delete('/okr/delete/{id}', [OkrController::class, 'destroy'])->name('okr.delete');;
 
+Route::any('/404', function() {
+    return view('404');
+});

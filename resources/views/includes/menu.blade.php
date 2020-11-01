@@ -9,6 +9,7 @@
     </li>
     <li class="{{ Request::path() === 'okrs' ? 'is-active' : '' }}">
       <a class="is-text" href="{{ route('okrs') }}">
+      <!-- || route('okr.edit') || route('okr.show')  -->
         <span class="icon is-small"><i class="fas fa-th-list"></i></span>
         <span>OKRs</span>
       </a>
