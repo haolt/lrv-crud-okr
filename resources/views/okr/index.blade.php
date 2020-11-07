@@ -25,11 +25,11 @@
                         <td>{{$okr->title}}</td>
                         <td>{{$okr->unit}}</td>
                         <td>
-                            <a href="./okr/{{$okr->id}}"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('okr.show', [ 'id'=> $okr->id ]) }}"><i class="fas fa-eye"></i></a>
                             {!! "&nbsp;" !!}
-                            <a href="./okr/edit/{{$okr->id}}"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{{ route('okr.edit', [ 'id'=> $okr->id ]) }}"><i class="fas fa-pencil-alt"></i></a>
                             {!! "&nbsp;" !!}
-                            
+
                             <form method="POST" class="table__delete-btn" action="{{ route('okr.delete', [ 'id'=> $okr->id ]) }}" onsubmit="return ConfirmDelete( this )">
                                 @method('DELETE')
                                 @csrf

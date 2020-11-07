@@ -15,10 +15,10 @@ Route::post('/okr/store', [OkrController::class, 'store'])->name('okr.store');
 
 Route::get('/okr/{id}', [OkrController::class, 'show'])->name('okr.show');
 
-Route::get('/okr/edit/{id}', [OkrController::class, 'edit'])->name('okr.edit');;
-Route::patch('/okr/update/{id}', [OkrController::class, 'update'])->name('okr.update');;
+Route::get('/okr/edit/{id}', [OkrController::class, 'edit'])->name('okr.edit');
+Route::patch('/okr/update/{id}', [OkrController::class, 'update'])->name('okr.update');
 
-Route::delete('/okr/delete/{id}', [OkrController::class, 'destroy'])->name('okr.delete');;
+Route::delete('/okr/delete/{id}', [OkrController::class, 'destroy'])->name('okr.delete');
 
 Route::any('/404', function() {
     return view('404');

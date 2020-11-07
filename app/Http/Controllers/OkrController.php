@@ -46,8 +46,9 @@ class OkrController extends Controller
 
         // dd(request()->all());
         $okr = new Okr;
-        $okr->title = $request->title;
-        $okr->unit = $request->unit;
+        // Hoặc $request->input()
+        $okr->title = $request->input('title');
+        $okr->unit = $request->input('unit');
 
         $okr->save();
         return redirect()->action([OkrController::class, 'index']);
@@ -61,7 +62,7 @@ class OkrController extends Controller
      */
     public function show($id)
     {
-        $okr = okr::where('id', '=', $id)->select('*')->first();
+        $okr = Okr::where('id', '=', $id)->select('*')->first();
         return view('okr.detail', compact('okr'));
     }
 
@@ -92,8 +93,8 @@ class OkrController extends Controller
         ]);
     
         $okr = Okr::find($id);
-        $okr->title = $request->title; 
-        $okr->unit = $request->unit;
+        $okr->title = $request->input('title');
+        $okr->unit = $request->input('unit');
 
         $okr->save();
         return redirect()->action([OkrController::class, 'index']);
